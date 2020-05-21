@@ -40,6 +40,6 @@ app.get('*', (req, res, next) => {
 })
 
 // Server
-app.listen(port, ()=>{
+app.listen(port, () => {
     console.log(`Server listening at: ${port}`)
 })
