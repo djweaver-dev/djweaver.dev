@@ -12,15 +12,28 @@ $onyx-lt: rgba(64, 67, 73, .5);
 $onyx-gh: rgba(64, 67, 73, .15);
 body {
     background: $ivory;
-    color: $onyx-md;
+    color: $onyx;
+}
+a {
+    color: $royal-blue;
+    text-decoration: none;
+    font-weight: bold;
+}
+#shadow {
+    // background: radial-gradient(circle, $royal-blue 0%, $ebony 120%);
+    background: $royal-blue;
 }
 header {
-    background: $royal-blue;
-    color: $ivory;
+    color: #fff;
 }
 nav {
-    background: $royal-blue;
-    color: $ivory;
+    color: #fff;
+    li {
+        ul {
+            background: rgba($ebony, .9);
+            color: #fff;
+        }
+    }
     li:hover {
         background: $coral;
         color: $onyx;
@@ -39,6 +52,9 @@ main {
     }
 }
 footer{
-    background: $onyx-md;
+    background: rgba($ebony, .9);
     color: $ivory;
+    a {
+        color: $coral;
+    }
 }

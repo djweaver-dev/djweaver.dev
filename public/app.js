@@ -1,3 +1,5 @@
+'use strict'
+
 // The following is a calculation for the vertical offset of the 'top' property
 // of a <div> that wraps around both the <header> and <nav> elements.  This <div>
 // exists to give a box shadow on only the bottom border of the <nav> bar.  If
@@ -15,7 +17,7 @@
 // other alternative to provide a shadow while keeping the <header>/<nav> 
 // transition seamless is to set the y-offset of the shadow so high that it is
 // hidden underneath the background of the <nav> itself.  This solution is not
-// good enough for me, because it just offsets the shadow, making the bottom
+// good enough for me because it just offsets the shadow, making the bottom
 // shadow bigger.
 
 const header = document.querySelector('header');
@@ -23,24 +25,43 @@ const headerStyle = window.getComputedStyle(header);
 const shadowDiv = document.getElementById('shadow');
 shadowDiv.style.top = ('-' + headerStyle.height);
 
-
-// The following has to occur every time the document resizes
-// and every time the window resizes.  There has to be a better
-// way to do this
-const lastSection = document.getElementById('contact');
-// I have to get sectMargin here dynamically, because the value 
-// may change elsewhere in css for other projects
-const section = document.querySelector('section');
-const sectMargin = window.getComputedStyle(section).marginTop;
-const viewPortHeight = window.innerHeight;
-const navBar = document.querySelector('nav');
-const navBarHeight = navBar.getBoundingClientRect().height;
-lastSection.style.height = `calc(${viewPortHeight - navBarHeight}px - ${sectMargin})`;
-
-// I'm thinking IF scrollbar reaches the end check to see if last
-// element top border meets bottom border of <nav>.  IF not, add
-// to the bottom margin of last element until TRUE.
+// Render the about page at landing
+fetch('/about')
+    .then(response => response.text())
+    .then(data => renderHTML(data))
 
 
+// This renders the text content of an HTML file that was
+// fetched from the server.  It adds the HTML to the innerHTML
+// of the <main> element.  The timeout and opacity settings
+// trigger an ease-in-out transition defined in CSS which 
+// makes the change a little more smooth and pleasant.
 
+const renderHTML = (data) => {
+    const mainElem = document.querySelector('main');
+    const opacity = getComputedStyle(mainElem).opacity;
+    if(opacity === '1'){
+        mainElem.style.opacity = 0;
+        setTimeout(() => {
+            mainElem.innerHTML = data;
+            mainElem.style.opacity = 1;
+        }, 1000)
+    } else {
+        mainElem.innerHTML = data;
+        mainElem.style.opacity = 1;
+    }
+}
 
+// Event delegation for the sticky navbar.  This sends a very
+// basic fetch GET request to the server.  The format of the 
+// URL is simply the id of the target that was clicked, which
+// correlates to an html file of the same name.  That file is 
+// is handled by renderHTML(), which is defined above.  If the
+// file does not exist, we are sent the custom 404 html.
+
+document.querySelector('nav').addEventListener('click', (event) => {
+    console.log(event.target.id);
+    fetch('/'+event.target.id)
+        .then(response => response.text())
+        .then(data => renderHTML(data))
+})
