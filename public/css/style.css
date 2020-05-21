@@ -88,11 +88,11 @@ h5 {
 
 p {
   font-family: 'plex-serif';
-  padding: 1rem;
+  margin: 2.4rem;
 }
 
 ul {
-  margin-left: 4rem;
+  margin-left: 6.4rem;
 }
 
 .content {
@@ -137,17 +137,17 @@ body {
 }
 
 header {
-  padding: 4.8rem;
+  padding: 8rem;
 }
 
 nav {
-  padding-left: 4.8rem;
+  padding-left: 8rem;
   z-index: 2;
 }
 
 nav li {
   display: inline-block;
-  padding: 1.6rem 2.4rem;
+  padding: 1rem 2rem;
   position: relative;
   border-radius: 1rem;
   cursor: pointer;
@@ -192,7 +192,7 @@ main {
 }
 
 section {
-  margin: 2.4rem 4.8rem;
+  margin: 4rem 8rem;
 }
 
 section .columns {
@@ -228,10 +228,16 @@ section .rows {
           flex-direction: column;
 }
 
+section .rows .content {
+  max-width: 80%;
+  margin: auto;
+  margin-top: 2rem;
+}
+
 section .content {
   margin: 1rem;
-  padding: 4.8rem;
-  padding-bottom: 9.6rem;
+  padding: 8rem;
+  padding-bottom: 16rem;
   -webkit-box-shadow: 0 0.5rem 0.5rem rgba(64, 67, 73, 0.5);
           box-shadow: 0 0.5rem 0.5rem rgba(64, 67, 73, 0.5);
   border-radius: 1rem;
@@ -244,6 +250,9 @@ section .content {
   header h2 {
     font-size: 3.2rem;
   }
+  nav {
+    text-align: center;
+  }
   nav ul {
     margin: 0;
     max-width: 80%;
@@ -253,7 +262,7 @@ section .content {
     display: block;
   }
   section {
-    margin: 1.2rem 2.4rem;
+    margin: 2rem 4rem;
   }
   section .columns .content {
     -webkit-box-flex: 1;
@@ -263,8 +272,11 @@ section .content {
   }
   section .content {
     margin: .5rem;
-    padding: 2.4rem;
-    padding-bottom: 9.6rem;
+    padding: 4rem;
+    padding-bottom: 16rem;
+  }
+  section h2 {
+    font-size: 3.2rem;
   }
 }
 
@@ -313,5 +325,38 @@ form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+.gallery {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  padding: 1rem;
+  height: auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.thumbnail {
+  width: 30%;
+  height: auto;
+  opacity: .75;
+  margin: 1rem;
+  border-radius: 1rem;
+  -webkit-transition: all 250ms ease;
+  transition: all 250ms ease;
+}
+
+.thumbnail:hover {
+  opacity: 1;
+  width: 30%;
 }
 /*# sourceMappingURL=style.css.map */

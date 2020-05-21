@@ -1,0 +1,17 @@
+<section>
+    <div class="rows"><h2>djweaver.dev site</h2>
+        <div class="content">
+            <h3>Description</h3>
+            <p>
+                This website is purposefully over-engineered and hosted as a dynamic application on Heroku using purely NodeJS and Express.  Get requests are passed off through a single event listener on the nav-bar element using fetch().  The route then traverses several Express middleware modules and Express retrieves and sends a partial HTML file that corresponds to the id of the click target element.  This file is sent back as text data to a client-side rendering script that injects the HTML text into the main elements innerHTML.
+            </p>
+            <h4>Possible Improvements:</h4>
+            <p>
+                <strong>Templating: </strong>Initially I planned on using EJS as a templating system to do server-side rendering.  I also wanted to selectively load partial html without reloading the entire page after every request and I found that ditching EJS and rendering the data client-side would be easier, albeit probably less secure.  I would like to explore templating further, and find a workaround to this, or perhaps create my own templating system, as I think it would be better to hide as much JS as possible from the end-user.
+            </p>
+            <h3>GitHub Repository</h3>
+            <a href="https://github.com/djweaver-dev/djweaver.dev" target="_blank">https://github.com/djweaver-dev/djweaver.dev</a>
+
+        </div>
+    </div>
+</section>

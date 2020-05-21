@@ -5,7 +5,7 @@
     border-radius: 1rem;
 }
 
-$indent: 4.8rem;
+$indent: 8rem;
 
 * {
     box-sizing: border-box;
@@ -33,7 +33,7 @@ nav {
     z-index: 2;  
     li {
         display: inline-block;
-        padding: 1.6rem 2.4rem;
+        padding: 1rem 2rem;
         position: relative;
         @include corners;
         cursor: pointer;
@@ -87,6 +87,11 @@ section {
     .rows {
         display: flex;
         flex-direction: column;
+        .content {
+            max-width:80%;
+            margin: auto;
+            margin-top: 2rem;
+        }
     }
     .content {
         margin: 1rem;
@@ -108,6 +113,7 @@ section {
         }
     }
     nav {
+        text-align: center;
         ul {
             margin: 0;
             max-width: 80%;
@@ -130,7 +136,9 @@ section {
             padding: $indent/2;
             padding-bottom: $indent*2;
         }
-        
+        h2 {
+            font-size: 3.2rem;
+        }
     }
 }
 footer {
@@ -174,4 +182,26 @@ form {
     height: 100%;
     width: 100%;
     display: flex;
+}
+.gallery {
+    display: flex;
+    flex-direction: row;
+    padding: 1rem;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+}
+
+.thumbnail {
+    width: 30%;
+    height: auto;
+    opacity: .75;
+    margin: 1rem;
+    @include corners;
+    transition: all 250ms ease;
+}
+
+.thumbnail:hover {
+    opacity: 1;
+    width: 30%;
 }

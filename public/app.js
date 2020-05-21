@@ -65,3 +65,5 @@ document.querySelector('nav').addEventListener('click', (event) => {
         .then(response => response.text())
         .then(data => renderHTML(data))
 })
+
+
